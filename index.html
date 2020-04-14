@@ -24,11 +24,26 @@
           return "Please enter Rock, Paper, or Scissors and try again";
         }
 
-        // Create variables to keep track of win, loss or tie
-        let win = false,
-          lose = false,
-          tie = false;
+        let result = decideWinner(playerSelection, computerSelection);
 
+        // Capitalize playerSelection and computerSelection so it looks neat upon notifying the player
+        playerSelection = capitalize(playerSelection);
+        computerSelection = capitalize(computerSelection);
+
+        // Notify player about the outcome of the round
+        if (result == "win") {
+          return `You Win! ${playerSelection} beats ${computerSelection}!`;
+        } else if (result == "lose") {
+          return `You lose! ${computerSelection} beats ${playerSelection}!`;
+        } else if (result == "tie") {
+          return "It's a tie!";
+        } else {
+          return "Something went wrong!";
+        }
+      }
+
+      function decideWinner(playerSelection, computerSelection) {
+        let win, lose, tie;
         // Decide the winner using if statements
         if (playerSelection === "rock") {
           if (computerSelection === "paper") {
@@ -56,25 +71,17 @@
           }
         }
 
-        // Capitalize playerSelection and computerSelection so it looks neat upon notifying the player
-        playerSelection = capitalize(playerSelection);
-        computerSelection = capitalize(computerSelection);
-
-        // Notify player about the outcome of the round
         if (win) {
-          return `You Win! ${playerSelection} beats ${computerSelection}!`;
-        } else if (lose) {
-          return `You lose! ${computerSelection} beats ${playerSelection}!`;
+          return "win";
         } else if (tie) {
-          return "It's a tie!";
+          return "tie";
         } else {
-          debugger;
-          return "Something went wrong!";
+          return "lose";
         }
       }
 
-      //   Play n rounds of RPS
       function game(n) {
+        //   Play n rounds of RPS
         for (let index = 0; index < n; index++) {
           console.log(
             playRound(
