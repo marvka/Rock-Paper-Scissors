@@ -7,11 +7,12 @@
   </head>
   <body>
     <script>
+      let validOptionArray =["rock", "paper", "scissors"];
+
       function computerPlay() {
         // Let the computer make it's choice
-        let options = ["Rock", "Paper", "Scissors"];
-        return options[
-          Math.floor(Math.random() * options.length)
+        return validOptionArray[
+          Math.floor(Math.random() * validOptionArray.length)
         ].toLocaleLowerCase();
       }
 
@@ -20,7 +21,7 @@
         playerSelection = playerSelection.toLowerCase();
 
         // Check if value is valid
-        if (!["rock", "paper", "scissors"].includes(playerSelection)) {
+        if (!validOptionArray.includes(playerSelection)) {
           return "Please enter Rock, Paper, or Scissors and try again";
         }
 
