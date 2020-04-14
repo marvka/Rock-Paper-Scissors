@@ -73,6 +73,12 @@
         }
       }
 
+      function game() {
+          for (let index = 0; index < 5; index++) {
+              console.log(playRound('rock',computerPlay()));
+          }
+      }
+
       function capitalize(word) {
         return word[0].toUpperCase() + word.slice(1);
       }
