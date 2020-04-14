@@ -7,7 +7,7 @@
   </head>
   <body>
     <script>
-      let validOptionArray =["rock", "paper", "scissors"];
+      let validOptionArray = ["rock", "paper", "scissors"];
 
       function computerPlay() {
         // Let the computer make it's choice
@@ -16,12 +16,15 @@
         ].toLocaleLowerCase();
       }
 
+      let isValid = (playerSelection) =>
+        validOptionArray.includes(playerSelection);
+
       function playRound(playerSelection, computerSelection) {
         // Convert user input to lowercase for deciding the winner in the function underneath
         playerSelection = playerSelection.toLowerCase();
 
         // Check if value is valid
-        if (!validOptionArray.includes(playerSelection)) {
+        if (!isValid(playerSelection)) {
           return "Please enter Rock, Paper, or Scissors and try again";
         }
 
