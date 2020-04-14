@@ -73,10 +73,18 @@
         }
       }
 
-      function game() {
-          for (let index = 0; index < 5; index++) {
-              console.log(playRound(playerSelection = prompt("Please enter Rock, Paper, or Scissors!"),computerPlay()));
-          }
+      //   Play n rounds of RPS
+      function game(n) {
+        for (let index = 0; index < n; index++) {
+          console.log(
+            playRound(
+              (playerSelection = prompt(
+                "Please enter Rock, Paper, or Scissors!"
+              )),
+              computerPlay()
+            )
+          );
+        }
       }
 
       function capitalize(word) {
@@ -84,7 +92,6 @@
       }
 
       let playerSelection;
-
     </script>
   </body>
 </html>
