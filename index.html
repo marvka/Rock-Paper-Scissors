@@ -16,8 +16,9 @@
         ].toLocaleLowerCase();
       }
 
-      let isValid = (playerSelection) =>
-        validOptionArray.includes(playerSelection);
+      function isValid(playerSelection) {
+        return validOptionArray.includes(playerSelection);
+      }
 
       function playRound(playerSelection, computerSelection) {
         // Convert user input to lowercase for deciding the winner in the function underneath
