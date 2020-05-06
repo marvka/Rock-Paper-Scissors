@@ -45,10 +45,10 @@
         playerSelection = capitalize(playerSelection);
         computerSelection = capitalize(computerSelection);
 
-        return notifyPlayer(result, playerSelection, computerSelection);
+        return displayResults(result, playerSelection, computerSelection);
       }
 
-      function notifyPlayer(result, playerSelection, computerSelection) {
+      function displayResults(result, playerSelection, computerSelection) {
         // Notify player about the outcome of the round
         if (result == "win") {
           return `You Win! ${playerSelection} beats ${computerSelection}!`;
