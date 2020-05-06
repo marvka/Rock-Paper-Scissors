@@ -117,7 +117,7 @@
       const buttons = document.querySelectorAll('button');
       buttons.forEach((button) => {
         button.addEventListener('click', (e) =>{
-            console.log(e.target.id);
+          console.log(playRound(e.target.id,computerPlay()));
         });
       });
     </script>
