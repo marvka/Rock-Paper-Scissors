@@ -8,9 +8,9 @@
   </head>
   <body>
     <div id='buttons'>
-      <button>Rock</button>
-      <button>Paper</button>
-      <button>Scissors</button>
+      <button id='rock'>Rock</button>
+      <button id='paper'>Paper</button>
+      <button id='scissors'>Scissors</button>
     </div>
     <script>
       const validOptionArray = ["rock", "paper", "scissors"];
@@ -113,6 +113,13 @@
       function capitalize(word) {
         return word[0].toUpperCase() + word.slice(1);
       }
+
+      const buttons = document.querySelectorAll('button');
+      buttons.forEach((button) => {
+        button.addEventListener('click', (e) =>{
+            console.log(e.target.id);
+        });
+      });
     </script>
   </body>
 </html>
