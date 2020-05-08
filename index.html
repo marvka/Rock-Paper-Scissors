@@ -7,7 +7,7 @@
     <title>Rock Paper Scissors</title>
   </head>
   <body>
-    <div id="rounds">Rounds Played: 0</div>
+    <div id="roundCounter">Rounds Played: 0</div>
     <div id="score">Player 0 : 0 Computer</div>
 
     <div id="buttons">
@@ -119,37 +119,60 @@
         return word[0].toUpperCase() + word.slice(1);
       }
 
-      function checkFiveRoundsPlayed(roundsPlayed) {
-        if (roundsPlayed != 0) return !(roundsPlayed % 5);
+      function updateCounters(roundResult) {
+        roundCounterDiv.textContent = `Rounds Played: ${roundsPlayed}`;
+        scoreDiv.textContent = `Player ${playerWinCount} : ${computerWinCount} Computer`;
+        const result = document.createElement('div');
+        result.textContent = roundResult;
+        resultDiv.appendChild(result);
       }
 
-      function updateCounters(roundsPlayed, playerWinCount, computerWinCount, roundResult) {
+      function addRoundToDiv (roundResult){
         roundCounterDiv.textContent = `Rounds Played: ${roundsPlayed}`;
         scoreDiv.textContent = `Player ${playerWinCount} : ${computerWinCount} Computer`;
         resultDiv.appendChild(roundResult);
+      }
+
+      function resetCounters() {
+        roundsPlayed = 0;
+        playerWinCount = 0;
+        computerWinCount = 0;
+      }
+      
+      function endGame() {
+        const result = document.createElement('div');
+        result.textContent = `The End! The final score is ${playerWinCount} : ${computerWinCount}`;
+      }
+
+      function resetGame() {
+        resetCounters;
+        resultDiv.innerHTML="";
       }
 
       const validOptionArray = ["rock", "paper", "scissors"];
       let roundsPlayed = 0;
       let playerWinCount = 0;
       let computerWinCount = 0;
+      let newGame = false;
+
       const resultDiv = document.querySelector("#results");
       const buttons = document.querySelectorAll("button");
-      const roundCounterDiv = document.querySelector("#rounds");
+      const roundCounterDiv = document.querySelector("#roundCounter");
       const scoreDiv = document.querySelector("#score");
 
       buttons.forEach((button) => {
         button.addEventListener("click", (e) => {
-          const roundResult = document.createElement("p");
-          roundResult.textContent = playRound(e.target.id, computerPlay()); // Play a round
+          if (newGame) {
+
+          }
+
+          let roundResult = playRound(e.target.id, computerPlay());
           roundsPlayed++;
 
-          updateCounters(roundsPlayed, playerWinCount, computerWinCount, roundResult);
+          updateCounters(roundResult);
 
-          if (checkFiveRoundsPlayed(roundsPlayed)) {
-            const result = document.createElement("div");
-            result.textContent = `The End! The final score is ${playerWinCount} : ${computerWinCount}`;
-            resultDiv.innerHTML = "";
+          if (playerWinCount == 5 || computerWinCount == 5) {
+            endGame();
           }
         });
       });
