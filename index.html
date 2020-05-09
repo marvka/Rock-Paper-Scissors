@@ -9,14 +9,15 @@
   <body>
     <div id="roundCounter">Rounds Played: 0</div>
     <div id="score">Player 0 : 0 Computer</div>
-    
+
     <div id="finalScore"></div>
     <div id="buttons">
       <button id="rock">Rock</button>
       <button id="paper">Paper</button>
       <button id="scissors">Scissors</button>
     </div>
-    
+
+    <div id="roundResults">Round results:</div>
     <div id="results"></div>
 
     <script>
@@ -109,12 +110,13 @@
       function updateCounters(roundResult) {
         roundCounterDiv.textContent = `Rounds Played: ${roundsPlayed}`;
         scoreDiv.textContent = `Player ${playerWinCount} : ${computerWinCount} Computer`;
-        const result = document.createElement('div');
+        const result = document.createElement("div");
         result.textContent = roundResult;
+        result.classList.add("result");
         resultDiv.appendChild(result);
       }
 
-      function addRoundToDiv (roundResult){
+      function addRoundToDiv(roundResult) {
         roundCounterDiv.textContent = `Rounds Played: ${roundsPlayed}`;
         scoreDiv.textContent = `Player ${playerWinCount} : ${computerWinCount} Computer`;
         resultDiv.appendChild(roundResult);
@@ -125,20 +127,20 @@
         playerWinCount = 0;
         computerWinCount = 0;
       }
-      
+
       function endGame() {
-        const finalScoreDiv = document.getElementById('finalScore');
-        const result = document.createElement('div');
+        const finalScoreDiv = document.getElementById("finalScore");
+        const result = document.createElement("div");
         result.textContent = `The End! The final score is ${playerWinCount} : ${computerWinCount}`;
         finalScoreDiv.appendChild(result);
         newGame = true;
       }
 
       function resetGame() {
-        const finalScoreDiv = document.getElementById('finalScore');
+        const finalScoreDiv = document.getElementById("finalScore");
         resetCounters();
-        resultDiv.innerHTML="";
-        finalScoreDiv.innerText="";
+        resultDiv.innerText = "";
+        finalScoreDiv.innerText = "";
         newGame = false;
       }
 

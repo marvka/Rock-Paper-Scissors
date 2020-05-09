@@ -1,0 +1,15 @@
+div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clear: left;
+}
+
+div#results{
+  display: block;
+  text-align: center;
+}
+
+#roundResults {
+  font-weight: bold;
+}
