@@ -3,23 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="style.css" />
     <title>Rock Paper Scissors</title>
   </head>
   <body>
-    <div id="roundCounter">Rounds Played: 0</div>
-    <div id="score">Player 0 : 0 Computer</div>
+    <div class="flexCentered">
+      <div id="roundCounter">Rounds Played: 0</div>
+      <div id="score">Player 0 : 0 Computer</div>
 
-    <div id="finalScore"></div>
-    <div id="buttons">
-      <button id="rock">Rock</button>
-      <button id="paper">Paper</button>
-      <button id="scissors">Scissors</button>
+      <div id="buttons">
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+      </div>
+      <div id="finalScore"></div>
+
+      <div id="roundResults">Round results:</div>
+      <div id="results"></div>
     </div>
-
-    <div id="roundResults">Round results:</div>
-    <div id="results"></div>
 
     <script>
       function computerPlay() {
