@@ -9,15 +9,15 @@
   <body>
     <div id="roundCounter">Rounds Played: 0</div>
     <div id="score">Player 0 : 0 Computer</div>
-
+    
+    <div id="finalScore"></div>
     <div id="buttons">
       <button id="rock">Rock</button>
       <button id="paper">Paper</button>
       <button id="scissors">Scissors</button>
     </div>
-
+    
     <div id="results"></div>
-    <div id="finalScore"></div>
 
     <script>
       function computerPlay() {
@@ -138,7 +138,7 @@
         const finalScoreDiv = document.getElementById('finalScore');
         resetCounters();
         resultDiv.innerHTML="";
-        finalScoreDiv.innerHTML="";
+        finalScoreDiv.innerText="";
         newGame = false;
       }
 
